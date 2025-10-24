@@ -30,10 +30,17 @@ public class Calculator {
                 result = num1 * num2;
                 break;
             case '/':
-                result = num2 != 0 ? num1 / num2 : Double.NaN;
+                if(num2 != 0) {
+                    result = num1 / num2;
+                } else {
+                    System.out.println("Error: Division by zero is not allowed!");
+                    sc.close();
+                    return;  // Program yahan stop kar dega division by zero par
+                }
                 break;
             default:
                 System.out.println("Invalid operator!");
+                sc.close();
                 return;
         }
 
